@@ -1,6 +1,5 @@
 import cv2
-from workers.rtmp_ingest import RTMPIngest
-from workers.rtmp_egress import RTMPEgress
+from workers import *
 from config.settings import INPUT_RTMP, OUTPUT_RTMP, WIDTH, HEIGHT
 
 def main():
