@@ -8,10 +8,13 @@ def main():
         rtmp_ingest.start()
         rtmp_egress = RTMPEgress(OUTPUT_RTMP, WIDTH, HEIGHT)
         rtmp_egress.start()
+        ai_worker = AIWorker()
         while True:
             frame = rtmp_ingest.get_frame_as_array()
-            blurred = cv2.GaussianBlur(frame, (21, 21), 30)
-            rtmp_egress.write_frame(blurred)
+            if frame is None:
+                continue
+            blurred_frame = ai_worker.blur_frame(frame=frame, width=WIDTH, height=HEIGHT)
+            rtmp_egress.write_frame(blurred_frame)
     except Exception as e:
         print(e)
     finally:
