@@ -1,0 +1,21 @@
+datasets/
+
+runs/
+
+# Ignore Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore virtual environments (even if in subfolder)
+venv/
+.venv/
+ENV/
+env/
+
+# YOLO training outputs
+runs/
+
+# IDE/editor configs
+.vscode/
+.idea/
