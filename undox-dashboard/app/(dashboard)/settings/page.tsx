@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
-import { Bell, Shield, Palette, Database, Users } from "lucide-react"
+import { Bell, Shield, Palette, Database, Users, Key, Eye, Copy } from "lucide-react"
 import { DashboardSidebar } from "@/components/dashboard-sidebar"
 
 export default function SettingsPage() {
@@ -33,6 +33,10 @@ export default function SettingsPage() {
                 <Button variant="ghost" className="w-full justify-start text-card-foreground">
                   <Bell className="w-4 h-4 mr-3" />
                   Notifications
+                </Button>
+                <Button variant="ghost" className="w-full justify-start text-card-foreground">
+                  <Key className="w-4 h-4 mr-3" />
+                  API Keys
                 </Button>
                 <Button variant="ghost" className="w-full justify-start text-card-foreground">
                   <Users className="w-4 h-4 mr-3" />
@@ -157,6 +161,163 @@ export default function SettingsPage() {
                     <p className="text-sm text-muted-foreground">Platform maintenance and update notifications</p>
                   </div>
                   <Switch defaultChecked />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* API Keys & Endpoints Settings */}
+            <Card className="bg-card border-border">
+              <CardHeader>
+                <CardTitle className="text-card-foreground">API Keys & Endpoints</CardTitle>
+                <CardDescription>Manage API keys and endpoints for external integrations and services</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* API Endpoints section */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg bg-muted/5">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Base API Endpoint</Label>
+                      <p className="text-sm text-muted-foreground">Main API endpoint for all requests</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        defaultValue="https://api.streammonitor.com/v1"
+                        className="w-80 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg bg-muted/5">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Streaming Endpoint</Label>
+                      <p className="text-sm text-muted-foreground">RTMP server management endpoint</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        defaultValue="https://stream.streammonitor.com/rtmp"
+                        className="w-80 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg bg-muted/5">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Analytics Endpoint</Label>
+                      <p className="text-sm text-muted-foreground">Real-time analytics and metrics</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        defaultValue="https://analytics.streammonitor.com/api"
+                        className="w-80 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg bg-muted/5">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Webhook Endpoint</Label>
+                      <p className="text-sm text-muted-foreground">Receive real-time event notifications</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        defaultValue="https://webhooks.streammonitor.com/events"
+                        className="w-80 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                <Separator className="bg-border" />
+
+                {/* API Keys section */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Streaming API Key</Label>
+                      <p className="text-sm text-muted-foreground">Used for RTMP server authentication</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="password"
+                        defaultValue=""
+                        className="w-64 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Eye className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Analytics API Key</Label>
+                      <p className="text-sm text-muted-foreground">For accessing analytics and reporting data</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="password"
+                        defaultValue=""
+                        className="w-64 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Eye className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border border-border rounded-lg">
+                    <div className="space-y-1">
+                      <Label className="text-card-foreground font-medium">Webhook Secret</Label>
+                      <p className="text-sm text-muted-foreground">Secret key for webhook verification</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        type="password"
+                        defaultValue=""
+                        className="w-64 bg-input border-border text-foreground"
+                        readOnly
+                      />
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Eye className="w-4 h-4" />
+                      </Button>
+                      <Button size="sm" variant="outline" className="border-border bg-transparent">
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+
+                <Separator className="bg-border" />
+
+                <div className="flex gap-3">
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Generate New Keys</Button>
+                  <Button variant="outline" className="border-border text-card-foreground bg-transparent">
+                    Revoke All Keys
+                  </Button>
                 </div>
               </CardContent>
             </Card>
