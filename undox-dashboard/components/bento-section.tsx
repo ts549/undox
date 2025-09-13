@@ -36,34 +36,29 @@ const BentoCard = ({ title, description, Component }: {title: String, descriptio
 export function BentoSection() {
   const cards = [
     {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
+      title: "AI-powered image detection",
+      description: "Detect when sensitive information such as credit cards or passwords are leaked.",
       Component: AiCodeReviews,
     },
     {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
+      title: "Automated screen redaction",
+      description: "Blur sensitive info.",
+      Component: AiCodeReviews,
+    },
+    {
+      title: "Security monitoring",
+      description: "Monitor streams to see if there are any private information leaks.",
       Component: RealtimeCodingPreviews,
     },
     {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
+      title: "Dashboard view for compliance",
+      description: "Manage roster of streamers and staff to monitor compliance violations.",
       Component: OneClickIntegrationsIllustration,
     },
     {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
-    },
-    {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
+      title: "Easily integratable", // Swapped position
+      description: "Provide RTMP ingest/egress or utilize API for custom integrations.",
       Component: ParallelCodingAgents, // Updated component
-    },
-    {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
-      Component: EasyDeployment,
     },
   ]
 
@@ -74,11 +69,10 @@ export function BentoSection() {
         <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
           <div className="flex flex-col justify-start items-center gap-4">
             <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-              Empower Your Workflow with AI
+              From Chaos to Control
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
+              Reduce the number of compliance violations and protect your sensitive information.
             </p>
           </div>
         </div>

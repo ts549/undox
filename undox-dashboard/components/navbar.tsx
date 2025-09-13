@@ -9,7 +9,7 @@ export function Navbar() {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="text-foreground text-xl font-semibold">
-            Pointer
+            Cypher
           </Link>
         </div>
 
